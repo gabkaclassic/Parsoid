@@ -5,7 +5,7 @@ from loaders.web_loaders import MIETScheduleLoader
 from parsers.parser import MIETScheduleToTimetable
 
 with httpx.Client() as client:
-    group = input("Your group: ")
+    group = input("Your group: ").strip()
     loader = MIETScheduleLoader(group=group)
     raw_data = loader.load_data()
     parser = MIETScheduleToTimetable()
